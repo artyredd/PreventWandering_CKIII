@@ -1,10 +1,51 @@
-[h1]Prevent Family Wandering[/h1]
+[h1] Prevent Family Wandering [/h1]
 Tired of your family members or coutiers leaving your court to pursue a career in hairdressing?
 
 You can now prevent that with this mod.
 
 This mod implements a 'Right Click' menu that will allow you to prevent them from leaving the court. 
 Or should you wish - allow them to leave the court as they please.
+
+[h1] Achievement Compatibility [/h1]
+[code][noparse]Achievement Compatible: ❌ 1.1.2[/noparse]
+[/code]
+
+[h1] Available Languages [/h1]
+[table]
+    [tr]
+        [th]File Name[/th]
+        [th]Compatible with other mods?[/th]
+    [/tr]
+    [tr]
+        [td]English[/td]
+        [td]✔[/td]
+    [/tr]
+    [tr]
+		[td]Français[/code][/td]
+		[td]❌[/td]
+    [/tr]
+    [tr]
+        [td]Deutsch[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]한국어 / 조선말[/td]
+        [td]✔[/td]
+    [/tr]
+    [tr]
+        [td]Pусский[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]汉语[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]Español[/td]
+        [td]❌[/td]
+    [/tr]
+[/tr]
+[/table]
 
 [h1]What does this mod change in my game files?[/h1]
 [table]
@@ -17,7 +58,31 @@ Or should you wish - allow them to leave the court as they please.
         [td]✔[/td]
     [/tr]
     [tr]
-		[td][code][noparse]localization/english/interactions_ll_english.yml[/noparse][/code][/td]
+		[td][code][noparse]localization/english/00_prevent_wandering_l_english.yml[/noparse][/code][/td]
 		[td]✔[/td]
     [/tr]
+    [tr]
+    [td][code][noparse]localization/english/00_prevent_wandering_l_korean.yml[/noparse][/code][/td]
+    [td]✔[/td]
+[/tr]
 [/table]
+
+[h1] Change Log [h1]
+[code]
+    1.0.1
+        - Lowered prestige cost of alowing and preventing wandering. Now 30 Prestige, down from 100.
+        - Added penalty for changing your mind to much, a 100 prestige cost penalty will be applied if you change your mind within 5 years, up from 0 penalty.
+        - Removed cost for allowing wandering, unless you have recently changed your mind (penalty), now 0 prestige (100 with penalty) down from 100.
+        - Removed strange horse
+        - Added Korean Translations, big thanks to [url=steamcommunity.com/profiles/76561198118536231] fuzzypurge [/url]
+
+    1.0.0
+        - Initial Release
+[/code]
+
+[h1] Issues, Suggestions, and Translations [/h1]
+[list]
+[*] If you have any issues please submit an issue report on github.
+[*] If you would like to submit a translation for any missing languages please submit them through github or by linking them below.
+[*] If you have a suggestion please leave it below or on github.
+[/list]

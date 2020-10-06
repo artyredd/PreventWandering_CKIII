@@ -1,0 +1,16 @@
+﻿l_korean:
+ ban_wandering_interaction:0 "방랑 금지"
+ ban_wandering_interaction_desc:1 "당신의 [recipient.GetShortUINamePossessiveNoTooltip](이)가 궁정에서 떠나는것을 방지합니다"
+ ban_wandering_notification:0 "방랑 금지"
+ enable_wandering_interaction:0 "방랑 허용"
+ enable_wandering_interaction_desc:1 "당신의 [recipient.GetShortUINamePossessiveNoTooltip](이)가 원한다면 궁정에서 떠날 수 있도록 허락합니다"
+ enable_wandering_notification:0 "방랑 허용"
+
+ ENABLE_WANDERING_PROPOSAL:0 "이제 떠나도 됩니다. 그 동안의 수고에 감사를 보냅니다. 앞으로의 여정에 행운이 있기를 바랍니다."
+ ENABLE_WANDERING_ACCEPT:0 "감사합니다 나의 주군이시여."
+
+ BAN_WANDERING_PROPOSAL:0 "당신의 경험과 용맹이 나의 궁정에 꼭 필요합니다. 곧 당신을 부를 것이니, 떠나지 마십시오."
+ BAN_WANDERING_ACCEPT:0 "좋습니다! 연락을 기다리겠습니다, 주군."
+ ENABLE_WANDERING_REJECT:0 "싫습니다! 나의 뜻이 가는 대로 행할 것입니다."
+ REASON_LIEGE:0 "나의 주군임"
+ PRESTIGE_COST_REASON:0 "기본"
