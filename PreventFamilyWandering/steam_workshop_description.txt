@@ -86,3 +86,9 @@ Or should you wish - allow them to leave the court as they please.
 [*] If you would like to submit a translation for any missing languages please submit them through github or by linking them below.
 [*] If you have a suggestion please leave it below or on github.
 [/list]
+
+[h1] Non-Steam Users [/h1]
+If you want to download and use this mod without steam you can download it on github.
+
+[h1] Github [/h1]
+[url=https://github.com/DekuDesu/PreventWandering_CKIII] Prevent Wandering Mod Github [/url]
