@@ -1,5 +1,4 @@
-﻿#Give characters money to improve their opinion of you
-ban_wandering_interaction = {
+﻿ban_wandering_interaction = {
 	category = interaction_category_diplomacy
 	common_interaction = yes
 	interface_priority = 60
@@ -15,8 +14,12 @@ ban_wandering_interaction = {
 		prestige = {
 			value = 0
 			add = {
-				value = 100
+				value = 30
 				desc = PRESTIGE_COST_REASON
+			}
+			add = {
+				value = indecisive_liege_cost_calculation
+				desc = PRESTIGE_COST_RECENT_DECISION_REASON
 			}
 		}
 	}
@@ -24,33 +27,39 @@ ban_wandering_interaction = {
 	ai_frequency = 60
 
 	is_shown = {
+		#make sure we're not showing this on our selves
 		NOT = {
 			scope:recipient = scope:actor
 		}
-
 		OR = {
-			scope:actor = {
-				is_dynast = yes
-				dynasty = scope:recipient.dynasty
+			#make sure they're ppart of our family AND we're the house head
+			AND = {
+				#make sure they're part of our family
+				scope:actor = {
+					is_dynast = yes
+					dynasty = scope:recipient.dynasty
+				}
+				#make sure we're the house head for them
+				scope:actor = {
+					is_house_head = yes
+				}
 			}
+			
+			# if they're not park of our family, make sure we're in charge of them
 			scope:recipient = {
 				is_courtier_of = scope:actor
 			}
 		}
-		
+
+		# make sure we're not showing this option if they're already blocked from leaving
 		scope:recipient = {
 			NOT = { has_character_flag = blocked_from_leaving }
 		}
 	}
 
 	is_valid_showing_failures_only = {
+		#make sure they're not 1000 km away
 		scope:recipient = { is_diplomatically_available = yes }
-	}
-
-	on_auto_accept = {
-		scope:recipient = {
-			trigger_event = char_interaction.0100
-		}
 	}
 
 	on_accept = {
@@ -61,6 +70,10 @@ ban_wandering_interaction = {
 				right_icon = scope:recipient
 				scope:recipient = {
 					add_character_flag = { FLAG = blocked_from_leaving }
+					add_character_flag = {
+						FLAG = recently_changed_wandering_status
+						years = 5
+					}
 				}
 			}
 		}
@@ -112,8 +125,8 @@ enable_wandering_interaction = {
 		prestige = {
 			value = 0
 			add = {
-				value = 100
-				desc = PRESTIGE_COST_REASON
+				value = indecisive_liege_cost_calculation
+				desc = PRESTIGE_COST_RECENT_DECISION_REASON
 			}
 		}
 	}
@@ -126,10 +139,18 @@ enable_wandering_interaction = {
 		}
 		
 		OR = {
-			scope:actor = {
-				is_dynast = yes
-				dynasty = scope:recipient.dynasty
+			AND = {
+				#make sure they're part of our family
+				scope:actor = {
+					is_dynast = yes
+					dynasty = scope:recipient.dynasty
+				}
+				scope:actor = {
+					is_house_head = yes
+				}
 			}
+
+			#make sure they're part of our court
 			scope:recipient = {
 				is_courtier_of = scope:actor
 			}
@@ -158,6 +179,10 @@ enable_wandering_interaction = {
 				right_icon = scope:recipient
 				scope:recipient = {
 					remove_character_flag = blocked_from_leaving
+					add_character_flag = {
+						FLAG = recently_changed_wandering_status
+						years = 5
+					}
 				}
 			}
 		}

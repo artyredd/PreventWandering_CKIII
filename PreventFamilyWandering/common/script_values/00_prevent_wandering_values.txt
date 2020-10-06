@@ -1,0 +1,11 @@
+﻿indecisive_liege_cost_calculation = {
+	base = 0
+	if = {
+		limit = {
+			scope:recipient = {
+				has_character_flag = recently_changed_wandering_status
+			}
+		}
+		add = 100
+	}
+}
