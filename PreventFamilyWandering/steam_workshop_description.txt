@@ -68,6 +68,8 @@ Or should you wish - allow them to leave the court as they please.
 
 [h1] Change Log [h1]
 [code]
+    1.0.1 Minor
+    	- Added Simplified Chinese Translations, big thanks to [url=steamcommunity.com/id/wuming1232] wuming1232 [/url]
     1.0.1
         - Lowered prestige cost of alowing and preventing wandering. Now 30 Prestige, down from 100.
         - Added penalty for changing your mind to much, a 100 prestige cost penalty will be applied if you change your mind within 5 years, up from 0 penalty.
