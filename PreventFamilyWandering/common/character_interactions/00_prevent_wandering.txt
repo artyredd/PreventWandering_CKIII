@@ -1,4 +1,3 @@
-﻿#Give characters money to improve their opinion of you
 ban_wandering_interaction = {
 	category = interaction_category_diplomacy
 	common_interaction = yes
@@ -15,7 +14,7 @@ ban_wandering_interaction = {
 		prestige = {
 			value = 0
 			add = {
-				value = 100
+				value = 50
 				desc = PRESTIGE_COST_REASON
 			}
 		}
@@ -24,33 +23,33 @@ ban_wandering_interaction = {
 	ai_frequency = 60
 
 	is_shown = {
+		#prevent player from banning themselfs, this causes problems when they are overthrown
 		NOT = {
 			scope:recipient = scope:actor
 		}
-
+		# make sure the player can only prevent their family or if they're incharge of the person
 		OR = {
+			#is the person part of their family?
 			scope:actor = {
 				is_dynast = yes
 				dynasty = scope:recipient.dynasty
 			}
+			# is this person employed in my court? Initiate Wage slavery.
 			scope:recipient = {
 				is_courtier_of = scope:actor
 			}
 		}
-		
+		# prevent this from being visible if they're already prevent from leaving the cort
 		scope:recipient = {
 			NOT = { has_character_flag = blocked_from_leaving }
 		}
 	}
 
 	is_valid_showing_failures_only = {
+		#make sure we're not trying to prevent family members 1,000 km away
 		scope:recipient = { is_diplomatically_available = yes }
-	}
-
-	on_auto_accept = {
-		scope:recipient = {
-			trigger_event = char_interaction.0100
-		}
+		#make sure we're the house head
+		scope:actor.dynasty.house_head = scope:actor
 	}
 
 	on_accept = {
@@ -112,7 +111,8 @@ enable_wandering_interaction = {
 		prestige = {
 			value = 0
 			add = {
-				value = 100
+				#to be replaced with a modifier
+				value = 10
 				desc = PRESTIGE_COST_REASON
 			}
 		}
@@ -120,34 +120,33 @@ enable_wandering_interaction = {
 	ai_frequency = 60
 
 	is_shown = {
-
+		#make sure were not removing the flag form ourselfs
 		NOT = {
 			scope:recipient = scope:actor
 		}
-		
+		#make sure they're part of our dynasty or enslaved by our wages
 		OR = {
+			# is this person my family?
 			scope:actor = {
 				is_dynast = yes
 				dynasty = scope:recipient.dynasty
 			}
+			#is this person a wage slave? Arent we all?
 			scope:recipient = {
 				is_courtier_of = scope:actor
 			}
 		}
-		
+		# make sure we can only see this, if the person has the flag to begin with...
 		scope:recipient = {
 			has_character_flag = blocked_from_leaving 
 		}
 	}
 
 	is_valid_showing_failures_only = {
+		#make sure that were not trying to tell a person 1000km away to do soemthing
 		scope:recipient = { is_diplomatically_available = yes }
-	}
-
-	on_auto_accept = {
-		scope:recipient = {
-			trigger_event = char_interaction.0100
-		}
+		#make sure we're the house head. No ones going to listen to the drunk uncle who doesnt pay rent for living on the couch
+		scope:actor.dynasty.house_head = scope:actor
 	}
 
 	on_accept = {
