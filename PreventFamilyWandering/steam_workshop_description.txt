@@ -1,0 +1,23 @@
+[h1]Prevent Family Wandering[/h1]
+Tired of your family members or coutiers leaving your court to pursue a career in hairdressing?
+
+You can now prevent that with this mod.
+
+This mod implements a 'Right Click' menu that will allow you to prevent them from leaving the court. 
+Or should you wish - allow them to leave the court as they please.
+
+[h1]What does this mod change in my game files?[/h1]
+[table]
+    [tr]
+        [th]File Name[/th]
+        [th]Compatible with other mods?[/th]
+    [/tr]
+    [tr]
+        [td][code][noparse]common/character_interactions/00_prevent_wandering.txt[/noparse][/code][/td]
+        [td]✔[/td]
+    [/tr]
+    [tr]
+		[td][code][noparse]localization/english/interactions_ll_english.yml[/noparse][/code][/td]
+		[td]✔[/td]
+    [/tr]
+[/table]

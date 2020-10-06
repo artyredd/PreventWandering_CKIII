@@ -1,0 +1,194 @@
+﻿#Give characters money to improve their opinion of you
+ban_wandering_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	interface_priority = 60
+	desc = ban_wandering_interaction_desc
+
+	greeting = positive
+	notification_text = BAN_WANDERING_PROPOSAL
+
+	answer_accept_key = BAN_WANDERING_ACCEPT
+	answer_reject_key = BAN_WANDERING_REJECT
+
+	cost = {
+		prestige = {
+			value = 0
+			add = {
+				value = 100
+				desc = PRESTIGE_COST_REASON
+			}
+		}
+	}
+
+	ai_frequency = 60
+
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+
+		OR = {
+			scope:actor = {
+				is_dynast = yes
+				dynasty = scope:recipient.dynasty
+			}
+			scope:recipient = {
+				is_courtier_of = scope:actor
+			}
+		}
+		
+		scope:recipient = {
+			NOT = { has_character_flag = blocked_from_leaving }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes }
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0100
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = ban_wandering_notification
+				right_icon = scope:recipient
+				scope:recipient = {
+					add_character_flag = { FLAG = blocked_from_leaving }
+				}
+			}
+		}
+	}
+	
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 100
+			desc = REASON_LIEGE
+		}
+	}
+	
+	ai_potential = {
+		is_adult = yes
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = auto_accept_interaction_ai	
+			object = scope:recipient
+			scope:recipient = {
+				is_ai = yes
+			}
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 1
+	
+	ai_will_do = {
+		base = 100
+	}
+}
+
+enable_wandering_interaction = {
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	interface_priority = 60
+	desc = enable_wandering_interaction_desc
+
+	greeting = positive
+	notification_text = ENABLE_WANDERING_PROPOSAL
+
+	answer_accept_key = ENABLE_WANDERING_ACCEPT
+	answer_reject_key = ENABLE_WANDERING_REJECT
+
+	cost = {
+		prestige = {
+			value = 0
+			add = {
+				value = 100
+				desc = PRESTIGE_COST_REASON
+			}
+		}
+	}
+	ai_frequency = 60
+
+	is_shown = {
+
+		NOT = {
+			scope:recipient = scope:actor
+		}
+		
+		OR = {
+			scope:actor = {
+				is_dynast = yes
+				dynasty = scope:recipient.dynasty
+			}
+			scope:recipient = {
+				is_courtier_of = scope:actor
+			}
+		}
+		
+		scope:recipient = {
+			has_character_flag = blocked_from_leaving 
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes }
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0100
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = enable_wandering_notification
+				right_icon = scope:recipient
+				scope:recipient = {
+					remove_character_flag = blocked_from_leaving
+				}
+			}
+		}
+	}
+	
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 100
+			desc = REASON_LIEGE
+		}
+	}
+	
+	ai_potential = {
+		is_adult = yes
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = auto_accept_interaction_ai	
+			object = scope:recipient
+			scope:recipient = {
+				is_ai = yes
+			}
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 1
+	
+	ai_will_do = {
+		base = 100
+	}
+}
